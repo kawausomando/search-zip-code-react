@@ -1,8 +1,11 @@
 import React from 'react';
+import MUIButton from '@mui/material/Button'
 
 function Button(props: { text: string, onClick: () => void}) {
   return (
-    <button onClick={ props.onClick }>{props.text}</button>
+    <MUIButton variant="contained" component="label" onClick={props.onClick} >
+      {props.text}
+    </MUIButton>
   );
 }
 

@@ -1,9 +1,24 @@
 import React from 'react';
+import MUITextField from '@mui/material/TextField'
 
-function Input(props: {value: string, name: string, onChange: Function}) {
+type InputTextProps = {
+  value: string,
+  name: string,
+  onChange: Function
+}
+
+function InputText(props: InputTextProps) {
   return (
-    <input value={ props.value } name={ props.name } onChange={ (e) => props.onChange(e.target.value)}></input>
+    <MUITextField 
+      id="filled-basic"
+      defaultValue=""
+      value={ props.value }
+      name={ props.name }
+      onChange={ (e) => props.onChange(e.target.value)}
+      variant="filled"
+      size="small"
+    />
   );
 }
 
-export default Input;
+export default InputText;
