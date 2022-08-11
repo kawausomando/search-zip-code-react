@@ -25,10 +25,7 @@ describe('InputText', () => {
       />,
     );
 
-    const inputTextElement = screen
-      .getAllByTestId('inputText')
-      .at(0) as HTMLInputElement;
-    const value = inputTextElement.innerHTML;
+    const value = screen.getAllByTestId('inputText').at(0)?.innerHTML;
     expect(value === 'dummyValue');
     renderResult.unmount();
   });
@@ -41,10 +38,9 @@ describe('InputText', () => {
     const inputTextElement = screen
       .getAllByTestId('inputText')
       .at(0) as HTMLInputElement;
-    const inputTag = inputTextElement
-      .getElementsByTagName('input')
-      .namedItem('dummyName') as HTMLInputElement;
-    fireEvent.change(inputTag, {target: {value: 'dummyChangedValue'}});
+    fireEvent.change(inputTextElement, {
+      target: {value: 'dummyChangedValue'},
+    });
     const changedValue = inputTextElement.innerHTML;
     expect(changedValue === 'dummyChangedValue');
 

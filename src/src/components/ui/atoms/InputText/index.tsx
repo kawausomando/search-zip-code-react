@@ -10,13 +10,18 @@ function InputText(props: InputTextProps) {
   return (
     <MUITextField
       id="filled-basic"
-      defaultValue=""
       value={props.value}
       name={props.name}
       onChange={(e) => props.onChange(e.target.value)}
+      inputProps={{
+        'data-testid': 'inputText',
+        'maxLength': props.maxLength,
+        'pattern': props.pattern,
+      }}
+      inputRef={props.inputRef}
       variant="filled"
       size="small"
-      data-testid="inputText"
+      placeholder={props.placeHolder}
     />
   );
 }

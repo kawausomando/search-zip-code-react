@@ -20,12 +20,14 @@ async function searchByZipcode(zipcode: string) {
     zipcode?: string;
   };
 
-  const response = await fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${zipcode}`);
+  const response = await fetch(
+    `https://zipcloud.ibsnet.co.jp/api/search?zipcode=${zipcode}`,
+  );
   if (!response.ok) {
-    alert("HTTP-Error: " + response.status);
-    return;
+    alert('HTTP-Error: ' + response.status);
+    return [];
   }
-  const body: ResponseBody = await response.json();;
+  const body: ResponseBody = await response.json();
   if (!body.results) return [];
 
   const addressList: Address[] = body.results.map((result) => {

@@ -12,6 +12,8 @@ type SearchFormProps = {
   zipcodeBottom: string;
   setZipcodeBottom: (value: string) => void;
   search: () => void;
+  zipCodeTopRef: React.RefObject<HTMLInputElement>;
+  zipCodeBottomRef: React.RefObject<HTMLInputElement>;
 };
 
 const ButtonWrapper = styled('div')`
@@ -35,6 +37,10 @@ function SearchForm(props: SearchFormProps) {
             value={props.zipcodeTop}
             name="zipcodeTop"
             onChange={props.setZipcodeTop}
+            inputRef={props.zipCodeTopRef}
+            placeHolder="000"
+            maxLength={3}
+            pattern="^[0-9]+$"
           ></InputText>
         </MUIGrid>
         <MUIGrid item xs={1}>
@@ -45,6 +51,10 @@ function SearchForm(props: SearchFormProps) {
             value={props.zipcodeBottom}
             name="zipcodeBottom"
             onChange={props.setZipcodeBottom}
+            inputRef={props.zipCodeBottomRef}
+            placeHolder="0000"
+            maxLength={4}
+            pattern="^[0-9]+$"
           ></InputText>
         </MUIGrid>
         <MUIGrid item xs={2}>

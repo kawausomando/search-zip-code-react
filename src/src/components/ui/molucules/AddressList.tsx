@@ -28,7 +28,7 @@ const ZipcodeWrapper = styled('div')`
  * @return {JSX.Element}
  */
 function AddressList(props: { addressList: Address[] }) {
-  const resultElementList = props.addressList.map(
+  let resultElementList = props.addressList.map(
     (address: Address, index: number) => {
       return (
         <div key={index}>
@@ -46,6 +46,19 @@ function AddressList(props: { addressList: Address[] }) {
       );
     },
   );
+
+  if (resultElementList.length === 0) {
+    resultElementList = [
+      <div key={0}>
+        <MUIListItem>
+          <ZipcodeWrapper></ZipcodeWrapper>
+          <MUIListItemText primary="検索結果なし" />
+        </MUIListItem>
+        <MUIDivider sx={muiDividerStyle} variant="inset" component="li" />
+      </div>,
+    ];
+  }
+
   return (
     <MUIList sx={muiListStyle} component="nav" aria-label="addressList">
       {resultElementList}
