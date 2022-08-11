@@ -1,8 +1,15 @@
 import React from 'react';
+import styled from '@emotion/styled';
+
+const HeaderWrapper = styled('h1')`
+  text-align: center;
+  max-width: 600px;
+  margin: auto;
+`;
 
 function Header(props: { text: string }) {
   return (
-    <h1>{props.text}</h1>
+    <HeaderWrapper>{props.text}</HeaderWrapper>
   );
 }
 
