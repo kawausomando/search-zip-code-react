@@ -11,7 +11,9 @@ function TextLabel(props: { text: string; size?: string }) {
     font-size: ${props.size === 'big' ? '30px' : '14px'};
   `;
 
-  return <TextLabelWrapper>{props.text}</TextLabelWrapper>;
+  return (
+    <TextLabelWrapper data-testid="textLabel">{props.text}</TextLabelWrapper>
+  );
 }
 
 export default TextLabel;

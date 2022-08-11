@@ -1,12 +1,6 @@
 import React from 'react';
 import MUITextField from '@mui/material/TextField';
 
-type InputTextProps = {
-  value: string;
-  name: string;
-  onChange: (value: string) => void;
-};
-
 /**
  * テキスト入力コンポーネント
  * @param {InputTextProps} props
@@ -22,6 +16,7 @@ function InputText(props: InputTextProps) {
       onChange={(e) => props.onChange(e.target.value)}
       variant="filled"
       size="small"
+      data-testid="inputText"
     />
   );
 }
