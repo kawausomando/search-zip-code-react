@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SearchForm from '../molucules/SearchForm';
 import AddressList from '../molucules/AddressList';
-import {searchByZipcode} from '../../../api/AddressApi';
 import styled from '@emotion/styled';
 import TextLabel from '../atoms/TextLabel';
 
@@ -23,26 +22,26 @@ const ResultLabelWrapper = styled('section')`
   margin-bottom: 5px;
 `;
 
-function AddressSearch() {
-  const [zipcodeTop, setZipcodeTop] = useState('');
-  const [zipcodeBottom, setZipcodeBottom] = useState('');
-  const [addressList, setAddressList] = useState<Address[]>([]);
+type AddressSearchProps = {
+  zipcodeTop: string,
+  setZipcodeTop: (value: string) => void,
+  zipcodeBottom: string,
+  setZipcodeBottom: (value: string) => void,
+  search: () => void,
+  addressList: Address[]
+}
 
-  const search = () => {
-    searchByZipcode(`${zipcodeTop}${zipcodeBottom}`).then((addressList) => {
-      setAddressList(addressList);
-    });
-  };
+function AddressSearch(props: AddressSearchProps) {
 
   return (
     <AddressSearchWrapper>
       <SearchFormWrapper>
         <SearchForm
-          zipcodeTop={zipcodeTop}
-          setZipcodeTop={setZipcodeTop}
-          zipcodeBottom={zipcodeBottom}
-          setZipcodeBottom={setZipcodeBottom}
-          search={search}
+          zipcodeTop={props.zipcodeTop}
+          setZipcodeTop={props.setZipcodeTop}
+          zipcodeBottom={props.zipcodeBottom}
+          setZipcodeBottom={props.setZipcodeBottom}
+          search={props.search}
         />
       </SearchFormWrapper>
       <AddressListWrapper className="AddressList">
@@ -50,7 +49,7 @@ function AddressSearch() {
           <TextLabel text='検索結果:'/>
         </ResultLabelWrapper>
         <AddressList
-          addressList={addressList}
+          addressList={props.addressList}
         />
       </AddressListWrapper>
     </AddressSearchWrapper>
