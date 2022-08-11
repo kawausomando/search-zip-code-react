@@ -29,6 +29,8 @@ type AddressSearchProps = {
   setZipcodeBottom: (value: string) => void;
   search: () => void;
   addressList: Address[];
+  zipCodeTopRef: React.RefObject<HTMLInputElement>;
+  zipCodeBottomRef: React.RefObject<HTMLInputElement>;
 };
 
 /**
@@ -46,6 +48,8 @@ function AddressSearch(props: AddressSearchProps) {
           setZipcodeTop={props.setZipcodeTop}
           zipcodeBottom={props.zipcodeBottom}
           setZipcodeBottom={props.setZipcodeBottom}
+          zipCodeTopRef={props.zipCodeTopRef}
+          zipCodeBottomRef={props.zipCodeBottomRef}
           search={props.search}
         />
       </SearchFormWrapper>

@@ -1,5 +1,10 @@
 import React from 'react';
-import {render, screen, fireEvent, RenderResult} from '@testing-library/react';
+import {
+  render,
+  screen,
+  fireEvent,
+  RenderResult,
+} from '@testing-library/react';
 import Button from './index';
 
 describe('Button', () => {
@@ -12,7 +17,9 @@ describe('Button', () => {
       <Button text="dummyButton" onClick={handleClick}></Button>,
     );
 
-    const labelElement = screen.getAllByTestId('button').at(0) as HTMLLabelElement;
+    const labelElement = screen
+      .getAllByTestId('button')
+      .at(0) as HTMLLabelElement;
     const labelValue = labelElement.innerText;
     fireEvent.click(labelElement);
     expect(labelValue === 'dummyButton');
