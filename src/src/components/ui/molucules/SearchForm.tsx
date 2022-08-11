@@ -7,13 +7,13 @@ import styled from '@emotion/styled';
 
 type SearchFormProps = {
   zipcodeTop: string,
-  setZipcodeTop: Function,
+  setZipcodeTop: (value: string) => void,
   zipcodeBottom: string,
-  setZipcodeBottom: Function
+  setZipcodeBottom: (value: string) => void,
   search: () => void
 }
 
-const StyledButtonWrapper = styled('div')`
+const ButtonWrapper = styled('div')`
   margin-top: 5px;
 `;
 
@@ -35,9 +35,9 @@ function SearchForm(props: SearchFormProps) {
           <InputText value={props.zipcodeBottom} name='zipcodeBottom' onChange={props.setZipcodeBottom}></InputText>
         </MUIGrid>
         <MUIGrid item xs={2}>
-          <StyledButtonWrapper>
+          <ButtonWrapper>
             <Button text='検索' onClick={props.search}></Button>
-          </StyledButtonWrapper>
+          </ButtonWrapper>
         </MUIGrid>
       </MUIGrid>
     </MUIBox>

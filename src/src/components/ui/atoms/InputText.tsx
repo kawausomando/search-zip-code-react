@@ -4,7 +4,7 @@ import MUITextField from '@mui/material/TextField'
 type InputTextProps = {
   value: string,
   name: string,
-  onChange: Function
+  onChange: (value: string) => void
 }
 
 function InputText(props: InputTextProps) {

@@ -5,11 +5,16 @@ import {searchByZipcode} from '../../../api/AddressApi';
 import styled from '@emotion/styled';
 import TextLabel from '../atoms/TextLabel';
 
-const SearchFormSection = styled('section')`
+const SearchFormWrapper = styled('section')`
   margin-bottom: 8px;
 `;
 
-const AddressListSection = styled('section')`
+const AddressSearchWrapper = styled('div')`
+  max-width: 600px;
+  margin: auto;
+}`;
+
+const AddressListWrapper = styled('section')`
   margin-top: 5px;
 `;
 
@@ -30,8 +35,8 @@ function AddressSearch() {
   };
 
   return (
-    <div className='addressSearch'>
-      <SearchFormSection>
+    <AddressSearchWrapper>
+      <SearchFormWrapper>
         <SearchForm
           zipcodeTop={zipcodeTop}
           setZipcodeTop={setZipcodeTop}
@@ -39,16 +44,16 @@ function AddressSearch() {
           setZipcodeBottom={setZipcodeBottom}
           search={search}
         />
-      </SearchFormSection>
-      <AddressListSection className="AddressList">
+      </SearchFormWrapper>
+      <AddressListWrapper className="AddressList">
         <ResultLabelWrapper>
           <TextLabel text='検索結果:'/>
         </ResultLabelWrapper>
         <AddressList
           addressList={addressList}
         />
-      </AddressListSection>
-    </div>
+      </AddressListWrapper>
+    </AddressSearchWrapper>
   );
 }
 
