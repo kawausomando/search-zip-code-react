@@ -22,21 +22,30 @@ const ZipcodeWrapper = styled('div')`
   margin-right: 15px;
 `;
 
-
-function AddressList(props: {addressList: Address[]}) {
-  const resultElementList = props.addressList.map((address: Address, index: number) => {
-    return (
-      <div key={index}>
-        <MUIListItem>
-          <ZipcodeWrapper>
-            <TextLabel text={address.zipcode} size='small'></TextLabel>
-          </ZipcodeWrapper>
-          <MUIListItemText primary={address.address} secondary={address.addressKana} />
-        </MUIListItem>
-        <MUIDivider sx={muiDividerStyle} variant="inset" component="li" />
-      </div>
-    );
-  });
+/**
+ * 住所検索結果表示用 コンポーネント
+ * @param {Object} props
+ * @return {JSX.Element}
+ */
+function AddressList(props: { addressList: Address[] }) {
+  const resultElementList = props.addressList.map(
+    (address: Address, index: number) => {
+      return (
+        <div key={index}>
+          <MUIListItem>
+            <ZipcodeWrapper>
+              <TextLabel text={address.zipcode} size="small" />
+            </ZipcodeWrapper>
+            <MUIListItemText
+              primary={address.address}
+              secondary={address.addressKana}
+            />
+          </MUIListItem>
+          <MUIDivider sx={muiDividerStyle} variant="inset" component="li" />
+        </div>
+      );
+    },
+  );
   return (
     <MUIList sx={muiListStyle} component="nav" aria-label="addressList">
       {resultElementList}
