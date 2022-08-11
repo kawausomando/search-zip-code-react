@@ -23,16 +23,21 @@ const ResultLabelWrapper = styled('section')`
 `;
 
 type AddressSearchProps = {
-  zipcodeTop: string,
-  setZipcodeTop: (value: string) => void,
-  zipcodeBottom: string,
-  setZipcodeBottom: (value: string) => void,
-  search: () => void,
-  addressList: Address[]
-}
+  zipcodeTop: string;
+  setZipcodeTop: (value: string) => void;
+  zipcodeBottom: string;
+  setZipcodeBottom: (value: string) => void;
+  search: () => void;
+  addressList: Address[];
+};
 
+/**
+ * 住所検索/結果表示用 コンポーネント
+ *
+ * @param {AddressSearchProps} props
+ * @return {JSX.Element}
+ */
 function AddressSearch(props: AddressSearchProps) {
-
   return (
     <AddressSearchWrapper>
       <SearchFormWrapper>
@@ -46,11 +51,9 @@ function AddressSearch(props: AddressSearchProps) {
       </SearchFormWrapper>
       <AddressListWrapper className="AddressList">
         <ResultLabelWrapper>
-          <TextLabel text='検索結果:'/>
+          <TextLabel text="検索結果:" />
         </ResultLabelWrapper>
-        <AddressList
-          addressList={props.addressList}
-        />
+        <AddressList addressList={props.addressList} />
       </AddressListWrapper>
     </AddressSearchWrapper>
   );

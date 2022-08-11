@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import AddressSearch from '../ui/organisms/AddressSearch';
-import { searchByZipcode } from '../../api/AddressApi';
+import {searchByZipcode} from '../../api/AddressApi';
 
+/**
+ * 住所検索/結果表示用 コンテナコンポーネント
+ * @return {JSX.Element}
+ */
 function AddressSearchContainer() {
   const [zipcodeTop, setZipcodeTop] = useState('');
   const [zipcodeBottom, setZipcodeBottom] = useState('');

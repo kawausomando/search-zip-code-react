@@ -7,10 +7,13 @@ const HeaderWrapper = styled('h1')`
   margin: auto;
 `;
 
+/**
+ * ヘッダーコンポーネント
+ * @param {Object} props
+ * @return {JSX.Element}
+ */
 function Header(props: { text: string }) {
-  return (
-    <HeaderWrapper>{props.text}</HeaderWrapper>
-  );
+  return <HeaderWrapper>{props.text}</HeaderWrapper>;
 }
 
 export default Header;
