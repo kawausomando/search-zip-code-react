@@ -13,7 +13,7 @@ const HeaderWrapper = styled('h1')`
  * @return {JSX.Element}
  */
 function Header(props: { text: string }) {
-  return <HeaderWrapper>{props.text}</HeaderWrapper>;
+  return <HeaderWrapper data-testid="header">{props.text}</HeaderWrapper>;
 }
 
 export default Header;
