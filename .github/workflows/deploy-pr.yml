@@ -43,7 +43,7 @@ jobs:
           pr_url=$( \
             gh pr create \
               --base ${DEPLOY_TARGET} \
-              --head main --label "auto deploy" \
+              --head main \
               --title "Deploy to ${DEPLOY_TARGET}" \
               --body "Auto deploy" \
               --no-maintainer-edit )
