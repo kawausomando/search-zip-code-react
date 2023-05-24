@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
       - name: "trigger deploy trial when diff exists and status check passed"
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEPLOY_TARGET: ${{ inputs.deploy_target }}
         run: |
           # Check out branches so that you don't have to speculate the remote name.
