@@ -19,4 +19,4 @@ jobs:
     with:
       deploy_target: ${{ github.event.inputs.deploy_target }}
     secrets:
-      GH_TOKEN: ${{ secrets.GH_TOKEN_YOUR_BOT }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
