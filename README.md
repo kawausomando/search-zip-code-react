@@ -16,3 +16,7 @@ yarn run start
 
 ### url
 http://localhost:3000
+
+### github workflow
+mainへのマージはsquash mergeを行うこと
+productionへのPR作成、マージはgithubアクションを使うこと
